@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title>TYT CALCULATOR</title>
+    </head>
+    <body>
+        <h1>TYT Hesap Makinesi</h1>
+        
+        <form name = "main">
+            <h2>Turkce</h2>
+            <br>
+            <label>Dogru Sayisi</label>
+            <input type = "number" name = "turkcedogrusayisi" id = "turkcedogrusayisi" placeholder="Ornek: 40" required>
+            <br>
+            <label>Yanlis Sayisi</label>
+            <input type = "number" name = "turkeyanlissayisi" id = "turkceyanlissayisi" placeholder="Ornek: 40" required>
+            <br>
+            <h2>Sosyal Bilimler</h2>
+            <br>
+            <label>Dogru Sayisi</label>
+            <input type = "number" name = "sosyaldogrusayisi" id = "sosyaldogrusayisi" placeholder="Ornek: 40" required>
+            <br>
+            <label>Yanlis Sayisi</label>
+            <input type = "number" name = "sosyalyanlissayisi" id = "sosyalyanlissayisi" placeholder="Ornek: 40" required>
+            <br>
+            <h2>Temel Matemetik</h2>
+            <br>
+            <label>Dogru Sayisi</label>
+            <input type = "number" name = "matdogrusayisi" id = "matdogrusayisi" placeholder="Ornek: 40" required>
+            <br>
+            <label>Yanlis Sayisi</label>
+            <input type = "number" name = "matyanlissayisi" id = "matyanlissayisi" placeholder="Ornek: 40" required>
+            <br>
+            <h2>Fen Bilimleri</h2>
+            <br>
+            <label>Dogru Sayisi</label>
+            <input type = "number" name = "fendogrusayisi" id = "fendogrusayisi" placeholder="Ornek: 40" required>
+            <br>
+            <label>Yanlis Sayisi</label>
+            <input type = "number" name = "fenyanlissayisi" id = "fenyanlissayisi" placeholder="Ornek: 40" required>
+            <br>
+            <br>
+            <input type = "button" value = "Hesapla!" onclick = "islem()">
+            <br>
+            <label>Sonuc</label>
+            <input type = "text" name = "sonuctext">
+        </form>
+
+         <script>
+
+                function islem(){ // islem fonksiyonu
+
+
+                    // obje kullanacam sebebi çokkk şey var
+
+                    /*
+                    ornegin birsuru var yerine var = {} daha uygun geliyor 
+                     */
+
+                        //var kullanımını çoğu kişi sevmiyor ama ben node.js/js yi ogle oğrendim ondan 
+
+                    var turkce = {
+                        dogrular : document.main.turkcedogrusayisi.value,
+                        yanlislar : document.main.turkceyanlissayisi.value
+                    }
+
+                    var mat = {
+                        dogrular : document.main.matdogrusayisi.value,
+                        yanlislar : document.main.matyanlissayisi.value
+                    }
+
+                    var fen = {
+                        dogrular : document.main.fendogrusayisi.value,
+                        yanlislar : document.main.fenyanlissayisi.value
+                    }
+
+                    var sosyal = {
+                        dogrular : document.main.sosyaldogrusayisi.value,
+                        yanlis : document.main.sosyalyanlissayisi.value
+                    }
+
+                    var sonucbox = document.main.sonuctext 
+
+                        // her hesap kodundaki gibi 4 yanlis 1 dogruyu cıkardıgına gore dogru - yanlislar/4 bize neti veriyor
+                        var turkcenet = turkce.dogrular - turkce.yanlislar/4
+                        var matnet =  mat.dogrular - mat.yanlislar/4
+                        var fennet = fen.dogrular - fen.yanlislar/4
+                        var sosyalnet = sosyal.dogrular - sosyal.yanlis/4
+                    sonucbox.value = `Turkce Netiniz : ${turkcenet}, Mat Netiniz : ${matnet}, Fen Netiniz : ${fennet}, Sosyal Netiniz : ${sosyalnet}`
+                }
+        </script>
+        
+    </body>
+</html>
